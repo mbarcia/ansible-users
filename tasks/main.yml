@@ -1,8 +1,4 @@
 ---
-
-- name: DebOps pre_tasks hook
-  include: "{{ lookup('task_src', 'users/pre_main.yml') }}"
-
 - include: users.yml
   when: users__enabled | bool
 
@@ -18,6 +14,3 @@
 - include: dotfiles.yml
   when: users__enabled | bool
   tags: [ 'role::users:dotfiles' ]
-
-- name: DebOps post_tasks hook
-  include: "{{ lookup('task_src', 'users/post_main.yml') }}"
